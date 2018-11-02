@@ -23,8 +23,7 @@
 (require 'color-theme)
 
 (color-theme-initialize)
-(color-theme-billw)
-
+(color-theme-blue-gnus)
 
 
 (with-eval-after-load 'info
@@ -42,6 +41,11 @@
 
 (setq tab-width 4) ; or any other preferred value
 (setq compilation-auto-jump-to-first-error 1)
+
+(setq backup-directory-alist
+          `(("." . ,(concat user-emacs-directory "backups"))))
+(setq auto-save-file-name-transforms
+          `((".*" ,(concat user-emacs-directory "autosave"))))
 
 (global-set-key (kbd "C-S-b") 'compile)
 (global-set-key (kbd "<C-S-tab>") (lambda() (interactive) (other-window -1)))
