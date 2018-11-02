@@ -1,0 +1,7 @@
+/.emacs.d/%backup%~
+.emacs.d/auto-save-list/
+.emacs.d/elpa/
+.emacs.d/server/
+.emacs.d/tramp
+/.emacs~
+.gnupg/
