@@ -52,7 +52,7 @@
 (global-set-key (kbd "<C-tab>") 'other-window)
 (global-set-key (kbd "M-C-B") 'recompile)
 (global-set-key (kbd "C-S-f") 'grep-find)
-(global-set-key (kbd "C-c $") 'toggle-truncate-lines)
+(global-set-key (kbd "C-$") 'toggle-truncate-lines)
 
 
 (defun unpop-to-mark-command ()
@@ -146,6 +146,7 @@ Version 2016-04-04"
  '(grep-find-command
    (quote
     ("grep -nIHR  * --exclude=*{#,~} --exclude=*{.log} --exclude-dir=Debug --exclude-dir=obj" . 12)))
+ '(package-selected-packages (quote (company magit)))
  '(truncate-lines nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
