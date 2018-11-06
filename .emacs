@@ -18,11 +18,12 @@
 
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
-(server-start)
+
 (tool-bar-mode -1)
 (require 'color-theme)
 
 (color-theme-initialize)
+(color-theme-billw)
 (color-theme-blue-gnus)
 
 
@@ -53,7 +54,10 @@
 (global-set-key (kbd "M-C-B") 'recompile)
 (global-set-key (kbd "C-S-f") 'grep-find)
 (global-set-key (kbd "C-c $") 'toggle-truncate-lines)
-
+(global-set-key (kbd "C-+") 'text-scale-increase)
+(global-set-key (kbd "C-=") 'text-scale-decrease)
+(global-set-key [C-mouse-4] 'text-scale-increase)
+(global-set-key [C-mouse-5] 'text-scale-decrease)
 
 (defun unpop-to-mark-command ()
   "Unpop off mark ring. Does nothing if mark ring is empty."
