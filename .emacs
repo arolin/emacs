@@ -53,7 +53,7 @@
 (global-set-key (kbd "<C-tab>") 'other-window)
 (global-set-key (kbd "M-C-B") 'recompile)
 (global-set-key (kbd "C-S-f") 'grep-find)
-(global-set-key (kbd "C-c $") 'toggle-truncate-lines)
+(global-set-key (kbd "C-$") 'toggle-truncate-lines)
 (global-set-key (kbd "C-+") 'text-scale-increase)
 (global-set-key (kbd "C-=") 'text-scale-decrease)
 (global-set-key [C-mouse-4] 'text-scale-increase)
