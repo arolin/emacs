@@ -41,7 +41,8 @@
 (setq-default indent-tabs-mode nil)
 
 (setq tab-width 4) ; or any other preferred value
-(setq compilation-auto-jump-to-first-error 1)
+(setq compilation-auto-jump-to-first-error t)
+(setq compilation-skip-threshold 2)
 
 (setq backup-directory-alist
           `(("." . ,(concat user-emacs-directory "backups"))))
