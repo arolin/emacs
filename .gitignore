@@ -5,3 +5,4 @@
 .emacs.d/tramp
 /.emacs~
 .gnupg/
+.ssh/
