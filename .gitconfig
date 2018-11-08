@@ -1,0 +1,5 @@
+[user]
+	name = Amaury Rolin
+	email = arolin@gmail.com
+[core]
+	autocrlf = true

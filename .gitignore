@@ -7,3 +7,7 @@
 .gnupg/
 .ssh/
 /.bash_history
+/.lesshst
+/.python_history
+.matplotlib/
+**backups/

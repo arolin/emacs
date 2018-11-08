@@ -151,6 +151,7 @@ Version 2016-04-04"
  '(grep-find-command
    (quote
     ("grep -nIHR  * --exclude=*{#,~} --exclude=*{.log} --exclude-dir=Debug --exclude-dir=obj" . 12)))
+ '(package-selected-packages (quote (csv-mode magit)))
  '(truncate-lines nil))
  '(package-selected-packages (quote (company magit)))
 (custom-set-faces
@@ -159,4 +160,10 @@ Version 2016-04-04"
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-(setq directory-abbrev-alist '(("^/mnt/hgfs/" . "c:\\")))
+
+(when (eq 'windows-nt system-type)
+  (setq directory-abbrev-alist '(("/mnt/hgfs/" . "c:\\")))
+  (setq python-shell-interpreter "c:\Python/WinPython-64bit-3.6.3.0Qt5\python-3.6.3.amd64/")
+)
+
+
