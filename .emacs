@@ -23,8 +23,6 @@
 (require 'color-theme)
 
 (color-theme-initialize)
-(color-theme-billw)
-(color-theme-blue-gnus)
 
 
 (with-eval-after-load 'info
@@ -164,6 +162,20 @@ Version 2016-04-04"
 (when (eq 'windows-nt system-type)
   (setq directory-abbrev-alist '(("/mnt/hgfs/" . "c:\\")))
   (setq python-shell-interpreter "c:\Python/WinPython-64bit-3.6.3.0Qt5\python-3.6.3.amd64/")
-)
+  )
 
+(when (eq 'gnu/linux system-type)
+  (defun toggle-fullscreen ()
+    "Toggle full screen on X11"
+    (interactive)
+    (when (eq window-system 'x)
+      (set-frame-parameter
+       nil 'fullscreen
+       (when (not (frame-parameter nil 'fullscreen)) 'fullboth))))
+
+  (global-set-key [f11] 'toggle-fullscreen)
+  (toggle-fullscreen)
+  (color-theme-billw)
+  (color-theme-blue-gnus)
+)
 
