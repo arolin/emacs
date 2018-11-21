@@ -4,9 +4,9 @@
 
 ;; If this line fails...
 (package-initialize)
-;; (require 'package)
-;; (add-to-list 'package-archives
-;;              '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 
 ;; ;; Once you have added your preferred archive, you need to update the local package list using:
 
@@ -175,7 +175,19 @@ Version 2016-04-04"
 
   (global-set-key [f11] 'toggle-fullscreen)
   (toggle-fullscreen)
-  (color-theme-billw)
-  (color-theme-blue-gnus)
-)
+  )
+
+(defun fix-colors ()
+  "fix colors in vmware"
+    (interactive)
+    (when (eq 1 1)
+      (color-theme-gray1)
+      (color-theme-billw)
+      (color-theme-blue-gnus)
+      )
+    )
+
+(global-set-key (kbd "C-c C-c") 'fix-colors)
+
+
 
