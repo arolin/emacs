@@ -176,6 +176,10 @@ Version 2016-04-04"
  ;; If there is more than one, they won't work right.
  )
 
+
+(magit-define-popup-option 'magit-pull-popup
+  ?s "recurse submodules" "--recurse-submodules=yes")
+
 (require 'qt-pro)
 (add-to-list 'auto-mode-alist '("\\.pr[io]$" . qt-pro-mode))
 
