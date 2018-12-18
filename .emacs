@@ -1,29 +1,40 @@
 ;; on linux in your main .emacs file just put
-;; (load ~/emacs/.emacs)
-;; (add-to-list 'load-path "~/emacs/.emacs.d/lisp/")
+;; (load "~/emacs/.emacs")
+
+(add-to-list 'load-path "~/.emacs.d/lisp/")
+(require 'color-theme)
+
+(color-theme-initialize)
+
+(defun fix-colors ()
+  "fix colors in vmware"
+    (interactive)
+    (when (eq 1 1)
+      (color-theme-gray1)
+      (color-theme-billw)
+      (color-theme-blue-gnus)
+      )
+    )
+
+(global-set-key (kbd "C-c C-c") 'fix-colors)
 
 ;; If this line fails...
 (package-initialize)
 (require 'package)
 (add-to-list 'package-archives
              '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.org/packages/") t)
 
 ;; ;; Once you have added your preferred archive, you need to update the local package list using:
-
-;; M-x package-refresh-contents RET
-
-;; ;; Once you have done that, you can install Magit and its dependencies using:
-
-;; M-x package-install RET magit RET
-
-(add-to-list 'load-path "~/.emacs.d/lisp/")
+;; (package-refresh-contents)
+;; (package-install 'markdown-mode)
+;; (package-install 'auto-complete)
+;; (package-install 'yasnippet)
 
 
 (tool-bar-mode -1)
 (menu-bar-mode -1)
-(require 'color-theme)
-
-(color-theme-initialize)
 
 
 (with-eval-after-load 'info
@@ -155,7 +166,7 @@ Version 2016-04-04"
     ("grep -nIHR  * --exclude=*{#,~} --exclude=*{.log} --exclude-dir=Debug --exclude-dir=obj" . 12)))
  '(package-selected-packages
    (quote
-    (markdown-mode auto-complete auto-complete-c-headers yasnippet auto-complete csv-mode magit)))
+    (markdown-mode   auto-complete auto-complete-c-headers yasnippet auto-complete csv-mode magit)))
  '(tramp-default-method "ssh")
  '(truncate-lines nil))
 (custom-set-faces
@@ -168,7 +179,7 @@ Version 2016-04-04"
 (require 'qt-pro)
 (add-to-list 'auto-mode-alist '("\\.pr[io]$" . qt-pro-mode))
 
-(load-file "~/load-ide.el")
+(load "~/emacs/.emacs.d/lisp/load-ide.el")
 
 (when (eq 'windows-nt system-type)
   (setq directory-abbrev-alist '(("/mnt/hgfs/" . "c:\\")))
@@ -191,17 +202,6 @@ p  )
   (toggle-fullscreen)
   )
 
-(defun fix-colors ()
-  "fix colors in vmware"
-    (interactive)
-    (when (eq 1 1)
-      (color-theme-gray1)
-      (color-theme-billw)
-      (color-theme-blue-gnus)
-      )
-    )
-
-(global-set-key (kbd "C-c C-c") 'fix-colors)
 
 
 (defun my-insert-recangle-push-lines ()
@@ -213,3 +213,4 @@ p  )
 (global-set-key (kbd "C-x r Y") #'my-insert-recangle-push-lines)
 
 
+(fix-colors)
