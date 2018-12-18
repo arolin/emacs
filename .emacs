@@ -165,6 +165,9 @@ Version 2016-04-04"
  ;; If there is more than one, they won't work right.
  )
 
+(require 'qt-pro)
+(add-to-list 'auto-mode-alist '("\\.pr[io]$" . qt-pro-mode))
+
 (load-file "~/load-ide.el")
 
 (when (eq 'windows-nt system-type)
@@ -210,5 +213,3 @@ p  )
 (global-set-key (kbd "C-x r Y") #'my-insert-recangle-push-lines)
 
 
-(put 'upcase-region 'disabled nil)
-(put 'downcase-region 'disabled nil)
