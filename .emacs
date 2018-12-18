@@ -159,6 +159,10 @@ Version 2016-04-04"
  ;; If there is more than one, they won't work right.
  )
 
+(require 'qt-pro)
+(add-to-list 'auto-mode-alist '("\\.pr[io]$" . qt-pro-mode))
+
+
 (when (eq 'windows-nt system-type)
   (setq directory-abbrev-alist '(("/mnt/hgfs/" . "c:\\")))
   (setq python-shell-interpreter "c:\Python/WinPython-64bit-3.6.3.0Qt5\python-3.6.3.amd64/")
@@ -188,6 +192,7 @@ Version 2016-04-04"
     )
 
 (global-set-key (kbd "C-c C-c") 'fix-colors)
+
 
 
 
