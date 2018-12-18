@@ -20,6 +20,7 @@
 
 
 (tool-bar-mode -1)
+(menu-bar-mode -1)
 (require 'color-theme)
 
 (color-theme-initialize)
@@ -55,6 +56,8 @@
 (global-set-key (kbd "C-$") 'toggle-truncate-lines)
 (global-set-key (kbd "C-+") 'text-scale-increase)
 (global-set-key (kbd "C-=") 'text-scale-decrease)
+(global-set-key (kbd "C-x C-l") 'downcase-dwim)
+(global-set-key (kbd "C-x C-u") 'upcase-dwim)
 (global-set-key [C-mouse-4] 'text-scale-increase)
 (global-set-key [C-mouse-5] 'text-scale-decrease)
 
@@ -146,12 +149,15 @@ Version 2016-04-04"
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(desktop-save-mode t)
  '(grep-find-command
    (quote
     ("grep -nIHR  * --exclude=*{#,~} --exclude=*{.log} --exclude-dir=Debug --exclude-dir=obj" . 12)))
- '(package-selected-packages (quote (csv-mode magit)))
+ '(package-selected-packages
+   (quote
+    (markdown-mode auto-complete auto-complete-c-headers yasnippet auto-complete csv-mode magit)))
+ '(tramp-default-method "ssh")
  '(truncate-lines nil))
- '(package-selected-packages (quote (company magit)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -159,10 +165,15 @@ Version 2016-04-04"
  ;; If there is more than one, they won't work right.
  )
 
+(load-file "~/load-ide.el")
+
 (when (eq 'windows-nt system-type)
   (setq directory-abbrev-alist '(("/mnt/hgfs/" . "c:\\")))
-  (setq python-shell-interpreter "c:\Python/WinPython-64bit-3.6.3.0Qt5\python-3.6.3.amd64/")
-  )
+  (setq exec-path (append '("c:\\Python\\WinPython-64bit-3.6.3.0Qt5\\python-3.6.3.amd64\\") exec-path))
+  (setq python-shell-interpreter "python.exe")
+  (defun toggle-full-screen () (interactive) (shell-command "emacs_fullscreen.exe"))
+  (global-set-key [f11] 'toggle-full-screen)
+p  )
 
 (when (eq 'gnu/linux system-type)
   (defun toggle-fullscreen ()
@@ -190,4 +201,14 @@ Version 2016-04-04"
 (global-set-key (kbd "C-c C-c") 'fix-colors)
 
 
+(defun my-insert-recangle-push-lines ()
+  (interactive)
+  (narrow-to-region (point) (mark))
+  (yank-rectangle)
+  (widen))
 
+(global-set-key (kbd "C-x r Y") #'my-insert-recangle-push-lines)
+
+
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
