@@ -31,6 +31,7 @@
 ;; (package-install 'markdown-mode)
 ;; (package-install 'auto-complete)
 ;; (package-install 'yasnippet)
+;; (package-install 'jedi)
 
 
 (tool-bar-mode -1)
@@ -69,6 +70,7 @@
 (global-set-key (kbd "C-=") 'text-scale-decrease)
 (global-set-key (kbd "C-x C-l") 'downcase-dwim)
 (global-set-key (kbd "C-x C-u") 'upcase-dwim)
+(global-set-key (kbd "C-c s") 'shell)
 (global-set-key [C-mouse-4] 'text-scale-increase)
 (global-set-key [C-mouse-5] 'text-scale-decrease)
 
@@ -183,6 +185,7 @@ Version 2016-04-04"
 (require 'qt-pro)
 (add-to-list 'auto-mode-alist '("\\.pr[io]$" . qt-pro-mode))
 
+(electric-pair-mode t)
 (load "~/emacs/.emacs.d/lisp/load-ide.el")
 
 (when (eq 'windows-nt system-type)
@@ -208,6 +211,7 @@ p  )
 
 
 
+;; Helper to move stuff out of the way when pasting
 (defun my-insert-recangle-push-lines ()
   (interactive)
   (narrow-to-region (point) (mark))
